@@ -6,17 +6,18 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /immfly_task
 
 # Install dependencies
-COPY requirements.txt /app/
+COPY requirements.txt /immfly_task/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
-COPY . /app/
+COPY . /immfly_task/
 
 # Expose the port
 EXPOSE 8000
 
+CMD [ "ifconfig" ]
 # Run the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "/immfly_task/immfly_task/manage.py", "runserver", "0.0.0.0:8000"]
